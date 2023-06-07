@@ -1,4 +1,6 @@
-﻿using ShapeLibrary.Models.ConcreteClasses;
+﻿using ShapeLibrary.Interfaces;
+using ShapeLibrary.Models.ConcreteClasses;
+using ShapeLibrary.Visitors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,9 +20,9 @@ namespace TestShapeLibrary
             double sideC = 5;
             double expectedArea = 6;
             Triangle triangle = new Triangle(sideA, sideB, sideC);
-
+            IVisitor visitor = new AreaVisitor();
             // Act
-            double actualArea = triangle.CalculateArea();
+            double actualArea = triangle.CalculateArea(visitor);
 
             // Assert
             Assert.Equal(expectedArea, actualArea);
