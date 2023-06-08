@@ -1,6 +1,4 @@
-using ShapeLibrary.Interfaces;
 using ShapeLibrary.Models.ConcreteClasses;
-using ShapeLibrary.Visitors;
 
 namespace TestShapeLibrary
 {
@@ -12,10 +10,9 @@ namespace TestShapeLibrary
             // Arrange
             double radius = 5;
             double expectedArea = Math.PI * Math.Pow(radius, 2);
-            Circle circle = new Circle(radius);
-            IVisitor visitor = new AreaVisitor();
+            Circle circle = new(radius);
             // Act
-            double actualArea = circle.CalculateArea(visitor);
+            double actualArea = circle.CalculateArea();
 
             // Assert
             Assert.Equal(expectedArea, actualArea);

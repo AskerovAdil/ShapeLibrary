@@ -1,21 +1,25 @@
-﻿using ShapeLibrary.Interfaces;
-using ShapeLibrary.Models.AbstractClasses;
+﻿using ShapeLibrary.Models.AbstractClasses;
 using ShapeLibrary.Models.ConcreteClasses;
-using ShapeLibrary.Visitors;
 
 namespace ExternalClient
 {
     internal class Program
     {
-        static void Main(string[] args)
+        static void Main()
         {
-            List<Shape> shapes = new List<Shape>();
-            shapes.Add(new Circle(5));
-            shapes.Add(new Triangle (3,4,5));
-            IVisitor visitor = new AreaVisitor(); 
+            List<Shape> shapes = new()
+            {
+                new Circle(5),
+                new Triangle(3, 4, 5)
+            };
+
             foreach (Shape shape in shapes)
             {
-                Console.WriteLine(value: $"Area {shape.CalculateArea(visitor)}");
+                Console.WriteLine(value: $"Area {shape.CalculateArea()}");
+                if (shape is Triangle triangle)
+                {
+                    Console.WriteLine($"Is the triangle right-angled? {triangle.IsRightAngled()}");
+                }
             }
 
         }

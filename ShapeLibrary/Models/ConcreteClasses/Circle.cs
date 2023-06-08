@@ -1,10 +1,4 @@
-﻿using ShapeLibrary.Interfaces;
-using ShapeLibrary.Models.AbstractClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShapeLibrary.Models.AbstractClasses;
 
 namespace ShapeLibrary.Models.ConcreteClasses
 {
@@ -20,9 +14,9 @@ namespace ShapeLibrary.Models.ConcreteClasses
             Radius = radius;
         }
 
-        public override double CalculateArea(IVisitor visitor)
+        public override double CalculateArea()
         {
-            return visitor.Visit(this);
+            return Math.PI * Math.Pow(Radius, 2);
         }
     }
 

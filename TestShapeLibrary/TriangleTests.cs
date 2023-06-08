@@ -1,11 +1,4 @@
-﻿using ShapeLibrary.Interfaces;
-using ShapeLibrary.Models.ConcreteClasses;
-using ShapeLibrary.Visitors;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShapeLibrary.Models.ConcreteClasses;
 
 namespace TestShapeLibrary
 {
@@ -19,10 +12,10 @@ namespace TestShapeLibrary
             double sideB = 4;
             double sideC = 5;
             double expectedArea = 6;
-            Triangle triangle = new Triangle(sideA, sideB, sideC);
-            IVisitor visitor = new AreaVisitor();
+            Triangle triangle = new(sideA, sideB, sideC);
+
             // Act
-            double actualArea = triangle.CalculateArea(visitor);
+            double actualArea = triangle.CalculateArea();
 
             // Assert
             Assert.Equal(expectedArea, actualArea);
@@ -71,7 +64,7 @@ namespace TestShapeLibrary
             double sideA = 3;
             double sideB = 4;
             double sideC = 5;
-            Triangle triangle = new Triangle(sideA, sideB, sideC);
+            Triangle triangle = new(sideA, sideB, sideC);
 
             // Act
             bool isRightAngled = triangle.IsRightAngled();
@@ -87,7 +80,7 @@ namespace TestShapeLibrary
             double sideA = 3;
             double sideB = 4;
             double sideC = 6;
-            Triangle triangle = new Triangle(sideA, sideB, sideC);
+            Triangle triangle = new(sideA, sideB, sideC);
 
             // Act
             bool isRightAngled = triangle.IsRightAngled();

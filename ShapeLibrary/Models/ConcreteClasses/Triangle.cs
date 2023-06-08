@@ -1,10 +1,4 @@
-﻿using ShapeLibrary.Interfaces;
-using ShapeLibrary.Models.AbstractClasses;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ShapeLibrary.Models.AbstractClasses;
 
 namespace ShapeLibrary.Models.ConcreteClasses
 {
@@ -29,9 +23,11 @@ namespace ShapeLibrary.Models.ConcreteClasses
             SideC = sideC;
         }
 
-        public override double CalculateArea(IVisitor visitor)
+        public override double CalculateArea()
         {
-            return visitor.Visit(this);
+            double semiPerimeter = (SideA + SideB + SideC) / 2;
+            double area = Math.Sqrt(semiPerimeter * (semiPerimeter - SideA) * (semiPerimeter - SideB) * (semiPerimeter - SideC));
+            return area;
         }
 
         public bool IsRightAngled()
